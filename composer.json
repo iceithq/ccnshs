@@ -1,13 +1,13 @@
 {
-	"description": "The CodeIgniter Framework Ready",
-	"name": "iceithq/ci_ready",
+	"description": "CMS Inferno",
+	"name": "iceithq/cms-inferno",
 	"type": "project",
-	"homepage": "https://github.com/iceithq/ci_ready",
+	"homepage": "https://github.com/iceithq/cms-inferno",
 	"license": "MIT",
 	"support": {
-		"forum": "https://github.com/iceithq/ci_ready/issues",
-		"wiki": "https://github.com/iceithq/ci_ready/wiki",
-		"source": "https://github.com/iceithq/ci_ready"
+		"forum": "https://github.com/iceithq/cms-inferno/issues",
+		"wiki": "https://github.com/iceithq/cms-inferno/wiki",
+		"source": "https://github.com/iceithq/cms-inferno"
 	},
 	"require": {
 		"php": ">=5.3.7",
