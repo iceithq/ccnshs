@@ -1,0 +1,21 @@
+{
+	"description": "The CodeIgniter Framework Ready",
+	"name": "iceithq/ci_ready",
+	"type": "project",
+	"homepage": "https://github.com/iceithq/ci_ready",
+	"license": "MIT",
+	"support": {
+		"forum": "https://github.com/iceithq/ci_ready/issues",
+		"wiki": "https://github.com/iceithq/ci_ready/wiki",
+		"source": "https://github.com/iceithq/ci_ready"
+	},
+	"require": {
+		"php": ">=5.3.7",
+		"iescarro/cigen": "^0.3.4",
+		"mikey179/vfsstream": "1.1.*",
+		"phpunit/phpunit": "4.* || 5.*"
+	},
+	"suggest": {
+		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
+	}
+}
