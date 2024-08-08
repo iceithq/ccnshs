@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set('Asia/Manila');
 
 /*
@@ -25,10 +25,10 @@ date_default_timezone_set('Asia/Manila');
   | a PHP script and you can easily do that on your own.
   |
  */
-$config['base_url'] = 'http://localhost:8888/iceithq/cms-inferno';
+$config['base_url'] = 'http://localhost:8888/iceithq/ccnshs';
 $config['enable_profiler'] = true;
 $config['admin_theme'] = 'admin';
-$config['theme'] = 'default';
+$config['theme'] = 'ccnshs';
 $config['project_name'] = 'cmsInferno';
 
 /*
@@ -419,7 +419,7 @@ $config['cookie_domain'] = '';
 $config['cookie_path'] = '/';
 $config['cookie_secure'] = FALSE;
 $config['cookie_httponly'] = FALSE;
-$config['cookie_samesite'] 	= 'Lax';
+$config['cookie_samesite']   = 'Lax';
 
 /*
   |--------------------------------------------------------------------------
