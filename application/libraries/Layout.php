@@ -2,9 +2,13 @@
 
 class Layout {
 
-  function __construct($layout = 'layout') {
+  var $layout;
+  var $theme;
+  var $obj;
+
+  function __construct($layout = 'admin_layout') {
     $this->layout = $layout;
-    $this->theme = config_item('theme');
+    $this->theme = config_item('admin_theme');
     $this->obj = &get_instance();
   }
 

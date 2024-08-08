@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
   | -------------------------------------------------------------------
@@ -63,7 +63,7 @@ $autoload['libraries'] = array(
   'form_validation',
   'layout',
   'session',
-  'database'
+  'database',
 );
 
 /*
@@ -96,8 +96,17 @@ $autoload['drivers'] = array();
   |	$autoload['helper'] = array('url', 'file');
  */
 $autoload['helper'] = array(
+  'folder',
+  'sub_menu',
+  'post_view',
+  'upload',
+  'menu',
+  'site',
+  'page',
+  'post',
   'user',
   'my',
+  'date',
   'layout',
   'html',
   'form',

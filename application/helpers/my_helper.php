@@ -1,5 +1,9 @@
 <?php
 
+function my_str_starts_with($val, $string) {
+  return (strpos($string, $val) === 0);
+}
+
 function validation_errors_array() {
   $obj = &get_instance();
   $validation_errors = $obj->form_validation->error_array();
@@ -68,9 +72,9 @@ function form_number($name, $value, $attributes) {
   return '<input type="number" name="' . $name . '" value="' . $value . '" ' . $attributes . '>';
 }
 
-function load_view($view) {
+function load_view($view, $data = null) {
   $obj = &get_instance();
-  $obj->load->view(get_theme() . '/' . $view);
+  $obj->load->view(get_theme() . '/' . $view, $data);
 }
 
 function to_object($array) {
@@ -171,8 +175,8 @@ function get_if($value, $default_value) {
   return $value ? $value : $default_value;
 }
 
-function upload_config($company_id) {
-  $upload_path = './uploads/' . $company_id;
+function upload_config() {
+  $upload_path = './media';
   if (!is_dir($upload_path)) {
     mkdir($upload_path);
   }
