@@ -26,7 +26,7 @@ CMS-Inferno is a robust Content Management System (CMS) developed using CodeIgni
 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/yourusername/cms-inferno.git
+git clone https://github.com/iceithq/cms-inferno.git
 cd cms-inferno
 ```
 
