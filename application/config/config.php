@@ -1,6 +1,7 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+error_reporting(E_ALL & ~E_DEPRECATED);
+defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set('Asia/Manila');
 
 /*
@@ -419,7 +420,7 @@ $config['cookie_domain'] = '';
 $config['cookie_path'] = '/';
 $config['cookie_secure'] = FALSE;
 $config['cookie_httponly'] = FALSE;
-$config['cookie_samesite'] 	= 'Lax';
+$config['cookie_samesite']   = 'Lax';
 
 /*
   |--------------------------------------------------------------------------

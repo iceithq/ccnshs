@@ -25,4 +25,6 @@
   <!-- Custom -->
   <link rel="stylesheet" href="themes/default/css/style.css">
 
+  <?php load_view('_fonts'); ?>
+
 </head>
