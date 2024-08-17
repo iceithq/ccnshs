@@ -1,8 +1,18 @@
 <?php
 
+/**
+ * cmsInferno
+ *
+ * Simply blog
+ *
+ * Copyright (c) 2024 cmsInferno. All rights reserved.
+ *
+ * cmsInferno and its user interface are protected by trademark
+ * and other pending or existing intellectual property
+ * rights in the Philippines.
+ */
 class Layout
 {
-
   var $layout;
   var $theme;
   var $obj;
@@ -33,6 +43,20 @@ class Layout
   function get_theme()
   {
     return $this->theme;
+  }
+}
+
+function load_view($view, $data = null)
+{
+  $obj = &get_instance();
+  $obj->load->view(get_theme() . '/' . $view, $data);
+}
+
+function load_view_if($condition, $view)
+{
+  if ($condition) {
+    $obj = &get_instance();
+    $obj->load->view($view);
   }
 }
 

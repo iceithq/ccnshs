@@ -1,20 +1,37 @@
 <?php
 
-class Setup extends CI_Controller {
+/**
+ * cmsInferno
+ *
+ * Simply blog
+ *
+ * Copyright (c) 2024 cmsInferno. All rights reserved.
+ *
+ * cmsInferno and its user interface are protected by trademark
+ * and other pending or existing intellectual property
+ * rights in the Philippines.
+ */
+class Setup extends CI_Controller
+{
 
   var $setup_service;
+  var $db;
+  var $user_model;
 
-  function __construct() {
+  function __construct()
+  {
     parent::__construct();
     $this->setup_service = new Setup_service();
   }
 
-  function index() {
+  function index()
+  {
     $data = array();
     $this->load->view(get_theme() . '/setup/index', $data);
   }
 
-  function clear_users() {
+  function clear_users()
+  {
     $this->db->truncate('users');
 
     $user = array('username' => 'a', 'password' => password_hash('a', PASSWORD_BCRYPT));
@@ -23,7 +40,8 @@ class Setup extends CI_Controller {
     echo '<div id="message">OK</div>';
   }
 
-  function unattended() {
+  function unattended()
+  {
     list($db_hostname, $db_username, $db_password, $db_database) = array(
       'localhost',
       'root',
@@ -41,16 +59,20 @@ class Setup extends CI_Controller {
 }
 
 
-class Setup_service {
+class Setup_service
+{
+  var $user_model;
 
-  function __construct() {
+  function __construct()
+  {
     $obj = &get_instance();
     $obj->load->database();
     $obj->load->model('user_model');
     $this->user_model = $obj->user_model;
   }
 
-  function update_database_config($hostname, $username, $password, $database) {
+  function update_database_config($hostname, $username, $password, $database)
+  {
     $content = file_get_contents(APPPATH . '/config/database-template.php');
     $content = str_replace("{HOSTNAME}", $hostname, $content);
     $content = str_replace("{USERNAME}", $username, $content);
@@ -61,43 +83,48 @@ class Setup_service {
     file_put_contents($database_file, $content);
   }
 
-  function load_database_schema($hostname, $username, $password, $database) {
+  function load_database_schema($hostname, $username, $password, $database)
+  {
     $content = file_get_contents(APPPATH . '/doc/schema.sql');
     $content = str_replace("{DATABASE}", $database, $content);
     $this->mysql_query($content, $hostname, $username, $password, $database);
   }
 
-  function load_database_functions($hostname, $username, $password, $database) {
+  function load_database_functions($hostname, $username, $password, $database)
+  {
     $content = file_get_contents(APPPATH . '/doc/all_functions.sql');
     $content = str_replace("delimiter ;", '', $content);
     $content = str_replace("delimiter", '', $content);
     $this->mysql_query($content, $hostname, $username, $password, $database, '$$');
   }
 
-  function create_admin($admin) {
+  function create_admin($admin)
+  {
     $admin_id = $this->user_model->save($admin);
   }
 
-  private function mysql_query($sql_queries, $hostname, $username, $password, $database, $delimiter = ";") {
+  private function mysql_query($sql_queries, $hostname, $username, $password, $database, $delimiter = ";")
+  {
     $conn = new mysqli($hostname, $username, $password, $database);
     if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
     }
     $queries = explode($delimiter, $sql_queries);
     foreach ($queries as $query) {
-      if (trim($query) == ''
+      if (
+        trim($query) == ''
         || my_str_starts_with('--', trim($query)
-        || my_str_starts_with('delimiter', trim($query)))) {
+          || my_str_starts_with('delimiter', trim($query)))
+      ) {
         continue;
       }
       // print_pre($query);
       if ($conn->query($query) === TRUE) {
-//        echo "Query executed successfully: " . $query . "<br>";
+        //        echo "Query executed successfully: " . $query . "<br>";
       } else {
         echo "Error executing query: " . $conn->error . "<br>";
       }
     }
     $conn->close();
   }
-
 }

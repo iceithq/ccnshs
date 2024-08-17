@@ -26,14 +26,6 @@ function set_output_profiler($enable_profiler)
   }
 }
 
-function load_view_if($condition, $view)
-{
-  if ($condition) {
-    $obj = &get_instance();
-    $obj->load->view($view);
-  }
-}
-
 function echo_if($condition, $message, $prefix = '', $suffix = '')
 {
   if ($condition) {
@@ -81,12 +73,6 @@ function form_email($name, $value, $attributes)
 function form_number($name, $value, $attributes)
 {
   return '<input type="number" name="' . $name . '" value="' . $value . '" ' . $attributes . '>';
-}
-
-function load_view($view, $data = null)
-{
-  $obj = &get_instance();
-  $obj->load->view(get_theme() . '/' . $view, $data);
 }
 
 function to_object($array)
@@ -171,6 +157,12 @@ function resize_image($filename, $file_type)
     imagepng($image_p, $filename_thumbnail);
   }
   imagedestroy($image_p);
+}
+
+function lalala($field, $label = '', $rules = '', $errors = array())
+{
+  $obj = &get_instance();
+  $obj->form_validation->set_rules($field, $label, $rules, $errors);
 }
 
 function post($name, $default = '')
