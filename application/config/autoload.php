@@ -107,7 +107,6 @@ $autoload['helper'] = array(
   'user',
   'my',
   'date',
-  'layout',
   'html',
   'form',
   'url'

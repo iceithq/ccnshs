@@ -1,20 +1,41 @@
 <?php
 
-class Menus extends CI_Controller {
+/**
+ * cmsInferno
+ *
+ * Simply blog
+ *
+ * Copyright (c) 2024 cmsInferno. All rights reserved.
+ *
+ * cmsInferno and its user interface are protected by trademark
+ * and other pending or existing intellectual property
+ * rights in the Philippines.
+ */
+class Menus extends CI_Controller
+{
+  var $admin_service;
+  var $menu_model;
 
-  function __construct() {
+  var $form_validation;
+  var $layout;
+  var $input;
+
+  function __construct()
+  {
     parent::__construct();
     $this->load->model('menu_model');
     $this->load->library('admin_service');
   }
 
-  function index() {
+  function index()
+  {
     // $data['menus'] = $this->menu_model->find_all();
     $data['menus'] = $this->admin_service->get_menus();
     $this->layout->view('menus/index', $data);
   }
 
-  function add() {
+  function add()
+  {
     if ($this->input->post()) {
       $menu = menu_form();
       menu_form_validate();
@@ -26,7 +47,8 @@ class Menus extends CI_Controller {
     $this->layout->view('menus/add');
   }
 
-  function edit($id) {
+  function edit($id)
+  {
     if ($this->input->post()) {
       $menu = menu_form();
       menu_form_validate();
@@ -39,9 +61,9 @@ class Menus extends CI_Controller {
     $this->layout->view('menus/edit', $data);
   }
 
-  function delete($id) {
+  function delete($id)
+  {
     $this->menu_model->delete($id);
     redirect('menus');
   }
-
 }

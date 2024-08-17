@@ -43,7 +43,6 @@ composer install
 Copy the example environment configuration file:
 
 ```bash
-
 cp application/config/database.php.example application/config/database.php
 ```
 
@@ -54,7 +53,6 @@ Edit application/config/database.php to set your database credentials.
 Import the provided SQL dump to create the necessary database tables:
 
 ```bash
-
 mysql -u username -p database_name < database_dump.sql
 ```
 
@@ -63,7 +61,6 @@ mysql -u username -p database_name < database_dump.sql
 Ensure the application/cache/ and application/logs/ directories are writable by the web server:
 
 ```bash
-
 chmod -R 755 application/cache
 chmod -R 755 application/logs
 ```
@@ -74,9 +71,9 @@ Navigate to http://yourdomain.com in your web browser to access CMS-Inferno.
 
 ## Usage
 
-* **Admin Login**: Access the admin panel at http://yourdomain.com/admin using the credentials created during installation.
-* **Manage Content**: Use the admin dashboard to create, edit, and delete pages and posts.
-* **Upload Media**: Manage images and files through the media library.
+- **Admin Login**: Access the admin panel at http://yourdomain.com/admin using the credentials created during installation.
+- **Manage Content**: Use the admin dashboard to create, edit, and delete pages and posts.
+- **Upload Media**: Manage images and files through the media library.
 
 ## Configuration
 
@@ -90,16 +87,16 @@ SMTP Settings: Configure email settings in application/config/email.php if neede
 
 ## Troubleshooting
 
-* **404 Errors**: Verify your .htaccess file and server configuration for URL rewriting.
-* **Database Connection Issues**: Check your database credentials in application/config/database.php.
+- **404 Errors**: Verify your .htaccess file and server configuration for URL rewriting.
+- **Database Connection Issues**: Check your database credentials in application/config/database.php.
 
 ## Contributing
 
-* Fork the repository.
-* Create a new branch (git checkout -b feature/your-feature).
-* Commit your changes (git commit -am 'Add new feature').
-* Push to the branch (git push origin feature/your-feature).
-* Open a Pull Request.
+- Fork the repository.
+- Create a new branch (git checkout -b feature/your-feature).
+- Commit your changes (git commit -am 'Add new feature').
+- Push to the branch (git push origin feature/your-feature).
+- Open a Pull Request.
 
 ## License
 
@@ -107,9 +104,9 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Acknowledgements
 
-* CodeIgniter 3 for the framework.
-* Composer for dependency management.
-* Various open-source libraries and tools.
+- CodeIgniter 3 for the framework.
+- Composer for dependency management.
+- Various open-source libraries and tools.
 
 ## Contact
 

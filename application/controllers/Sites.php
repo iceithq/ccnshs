@@ -1,18 +1,38 @@
 <?php
 
-class Sites extends CI_Controller {
+/**
+ * cmsInferno
+ *
+ * Simply blog
+ *
+ * Copyright (c) 2024 cmsInferno. All rights reserved.
+ *
+ * cmsInferno and its user interface are protected by trademark
+ * and other pending or existing intellectual property
+ * rights in the Philippines.
+ */
+class Sites extends CI_Controller
+{
+  var $site_model;
 
-  function __construct() {
+  var $layout;
+  var $input;
+  var $form_validation;
+
+  function __construct()
+  {
     parent::__construct();
     $this->load->model('site_model');
   }
 
-  function index() {
+  function index()
+  {
     $data['sites'] = $this->site_model->find_all();
     $this->layout->view('sites/index', $data);
   }
 
-  function add() {
+  function add()
+  {
     if ($this->input->post()) {
       $site = site_form();
       site_form_validate();
@@ -24,7 +44,8 @@ class Sites extends CI_Controller {
     $this->layout->view('sites/add');
   }
 
-  function edit($id) {
+  function edit($id)
+  {
     if ($this->input->post()) {
       $site = site_form();
       site_form_validate();
@@ -37,9 +58,9 @@ class Sites extends CI_Controller {
     $this->layout->view('sites/edit', $data);
   }
 
-  function delete($id) {
+  function delete($id)
+  {
     $this->site_model->delete($id);
     redirect('sites');
   }
-
 }

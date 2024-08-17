@@ -1,18 +1,38 @@
 <?php
 
-class Comments extends CI_Controller {
+/**
+ * cmsInferno
+ *
+ * Simply blog
+ *
+ * Copyright (c) 2024 cmsInferno. All rights reserved.
+ *
+ * cmsInferno and its user interface are protected by trademark
+ * and other pending or existing intellectual property
+ * rights in the Philippines.
+ */
+class Comments extends CI_Controller
+{
+  var $comment_model;
 
-  function __construct() {
+  var $layout;
+  var $input;
+  var $form_validation;
+
+  function __construct()
+  {
     parent::__construct();
     $this->load->model('comment_model');
   }
 
-  function index() {
+  function index()
+  {
     $data['comments'] = $this->comment_model->find_all();
     $this->layout->view('comments/index', $data);
   }
 
-  function add() {
+  function add()
+  {
     if ($this->input->post()) {
       $comment = comment_form();
       comment_form_validate();
@@ -24,7 +44,8 @@ class Comments extends CI_Controller {
     $this->layout->view('comments/add');
   }
 
-  function edit($id) {
+  function edit($id)
+  {
     if ($this->input->post()) {
       $comment = comment_form();
       comment_form_validate();
@@ -37,9 +58,9 @@ class Comments extends CI_Controller {
     $this->layout->view('comments/edit', $data);
   }
 
-  function delete($id) {
+  function delete($id)
+  {
     $this->comment_model->delete($id);
     redirect('comments');
   }
-
 }

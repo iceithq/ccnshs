@@ -1,14 +1,26 @@
 <?php
 
-function folder_form() {
-  $obj = &get_instance();
+/**
+ * cmsInferno
+ *
+ * Simply blog
+ *
+ * Copyright (c) 2024 cmsInferno. All rights reserved.
+ *
+ * cmsInferno and its user interface are protected by trademark
+ * and other pending or existing intellectual property
+ * rights in the Philippines.
+ */
+function folder_form()
+{
   return array(
-    'name' => $obj->input->post('name'),
-    // 'created_at' => $obj->input->post('created_at'),
+    'name' => post('name'),
+    // 'created_at' => post('created_at'),
   );
 }
 
-function folder_form_validate() {
+function folder_form_validate()
+{
   $obj = &get_instance();
   $obj->form_validation->set_rules('name', 'Name', 'required');
   // $obj->form_validation->set_rules('created_at', 'Created_at', 'required');
