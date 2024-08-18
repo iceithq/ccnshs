@@ -11,10 +11,11 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Custom -->
-  <link rel="stylesheet" href="themes/default/css/style.css">
+  <!-- include summernote css/js -->
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
@@ -25,17 +26,16 @@
 
   <style>
     html {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
     table {
-      font-size: 1em;
+      font-size: 1rem;
     }
 
     body {
-      font-family: "Inter", sans-serif;
+      font-family: "Inter", sans-serif !important;
       font-optical-sizing: auto;
-      /* font-weight: <weight>; */
       font-style: normal;
       font-variation-settings:
         "slnt" 0;
@@ -53,37 +53,44 @@
       font-style: normal;
     }
 
-    nav a {
-      margin-right: 10px;
-    }
-
-    footer {
-      margin: 100px 0 50px;
+    #content {
+      margin-bottom: 300px;
     }
   </style>
 
 </head>
 
-<nav>
-  <h1><?php echo config_item('project_name'); ?></h1>
-  <?php echo anchor('.', '<h1>' . config_item('product_name') . '</h1>'); ?>
-  <ul>
-    <li>
-      <?php echo anchor('.', 'Home'); ?>
-    </li>
-    <?php foreach ($menus as $menu) : ?>
-      <li>
-        <?php echo anchor($menu->url, $menu->name); ?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <?php echo anchor('.', '
+      <img src="public/themes/default/img/logo.png?v=2" height="42">'); ?>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <?php echo anchor('.', 'Home', 'class="nav-link"'); ?>
       </li>
-    <?php endforeach; ?>
-    <?php if (session('user_id')) : ?>
-      <li>
-        <?php echo anchor('login', 'Manage my site'); ?>
-      </li>
-    <?php endif; ?>
-  </ul>
+      <?php foreach ($menus as $menu) : ?>
+        <li class="nav-item">
+          <?php echo anchor($menu->url, $menu->name, 'class="nav-link"'); ?>
+        </li>
+      <?php endforeach; ?>
+      <?php if (session('user_id')) : ?>
+        <li class="nav-item">
+          <?php echo anchor('login', 'Manage my site', 'class="nav-link"'); ?>
+        </li>
+      <?php endif; ?>
+    </ul>
+  </div>
 </nav>
 
-<div class="container">
+<div class="container mt-3">
   <?php echo $content; ?>
+
+  <p class="mt-5">
+    Powered by <?php echo anchor('https://github.com/iceithq/cms-inferno', config_item('project_name')); ?> with ❤️!
+  </p>
 </div>

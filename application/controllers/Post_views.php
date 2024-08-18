@@ -1,18 +1,38 @@
 <?php
 
-class Post_views extends CI_Controller {
+/**
+ * cmsInferno
+ *
+ * Simply blog
+ *
+ * Copyright (c) 2024 cmsInferno. All rights reserved.
+ *
+ * cmsInferno and its user interface are protected by trademark
+ * and other pending or existing intellectual property
+ * rights in the Philippines.
+ */
+class Post_views extends CI_Controller
+{
+  var $post_view_model;
 
-  function __construct() {
+  var $input;
+  var $form_validation;
+  var $layout;
+
+  function __construct()
+  {
     parent::__construct();
     $this->load->model('post_view_model');
   }
 
-  function index() {
+  function index()
+  {
     $data['post_views'] = $this->post_view_model->find_all();
     $this->layout->view('post_views/index', $data);
   }
 
-  function add() {
+  function add()
+  {
     if ($this->input->post()) {
       $post_view = post_view_form();
       post_view_form_validate();
@@ -24,7 +44,8 @@ class Post_views extends CI_Controller {
     $this->layout->view('post_views/add');
   }
 
-  function edit($id) {
+  function edit($id)
+  {
     if ($this->input->post()) {
       $post_view = post_view_form();
       post_view_form_validate();
@@ -37,9 +58,9 @@ class Post_views extends CI_Controller {
     $this->layout->view('post_views/edit', $data);
   }
 
-  function delete($id) {
+  function delete($id)
+  {
     $this->post_view_model->delete($id);
     redirect('post_views');
   }
-
 }

@@ -1,13 +1,33 @@
 <?php
 
-class Site extends CI_Controller {
+/**
+ * cmsInferno
+ *
+ * Simply blog
+ *
+ * Copyright (c) 2024 cmsInferno. All rights reserved.
+ *
+ * cmsInferno and its user interface are protected by trademark
+ * and other pending or existing intellectual property
+ * rights in the Philippines.
+ */
+class Site extends CI_Controller
+{
+  var $site_model;
 
-  function __construct() {
+  var $input;
+  var $form_validation;
+  var $layout;
+  var $session;
+
+  function __construct()
+  {
     parent::__construct();
     $this->load->model('site_model');
   }
 
-  function settings() {
+  function settings()
+  {
     if ($this->input->post()) {
       $site = site_form();
       site_form_validate();
@@ -21,5 +41,4 @@ class Site extends CI_Controller {
     $data['message'] = $this->session->flashdata('message');
     $this->layout->view('site/settings', $data);
   }
-
 }

@@ -1,5 +1,5 @@
-<h4><?php echo $page->title; ?></h4>
-<?php if (session('user_id')): ?>
+<h3><?php echo $page->title; ?></h3>
+<?php if (session('user_id')) : ?>
   <p>
     <?php echo anchor('pages/edit/' . $page->id, 'Edit'); ?>
   </p>
