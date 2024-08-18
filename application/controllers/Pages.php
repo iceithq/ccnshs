@@ -1,18 +1,38 @@
 <?php
 
-class Pages extends CI_Controller {
+/**
+ * cmsInferno
+ *
+ * Simply blog
+ *
+ * Copyright (c) 2024 cmsInferno. All rights reserved.
+ *
+ * cmsInferno and its user interface are protected by trademark
+ * and other pending or existing intellectual property
+ * rights in the Philippines.
+ */
+class Pages extends CI_Controller
+{
+  var $page_model;
 
-  function __construct() {
+  var $layout;
+  var $input;
+  var $form_validation;
+
+  function __construct()
+  {
     parent::__construct();
     $this->load->model('page_model');
   }
 
-  function index() {
+  function index()
+  {
     $data['pages'] = $this->page_model->find_all();
     $this->layout->view('pages/index', $data);
   }
 
-  function add() {
+  function add()
+  {
     if ($this->input->post()) {
       $page = page_form();
       page_form_validate();
@@ -24,7 +44,8 @@ class Pages extends CI_Controller {
     $this->layout->view('pages/add');
   }
 
-  function edit($id) {
+  function edit($id)
+  {
     if ($this->input->post()) {
       $page = page_form();
       page_form_validate();
@@ -37,9 +58,9 @@ class Pages extends CI_Controller {
     $this->layout->view('pages/edit', $data);
   }
 
-  function delete($id) {
+  function delete($id)
+  {
     $this->page_model->delete($id);
     redirect('pages');
   }
-
 }

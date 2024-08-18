@@ -1,6 +1,18 @@
 <?php
 
-class Posts extends CI_Controller {
+/**
+ * cmsInferno
+ *
+ * Simply blog
+ *
+ * Copyright (c) 2024 cmsInferno. All rights reserved.
+ *
+ * cmsInferno and its user interface are protected by trademark
+ * and other pending or existing intellectual property
+ * rights in the Philippines.
+ */
+class Posts extends CI_Controller
+{
 
   var $post_model;
 
@@ -8,17 +20,20 @@ class Posts extends CI_Controller {
   var $layout;
   var $form_validation;
 
-  function __construct() {
+  function __construct()
+  {
     parent::__construct();
     $this->load->model('post_model');
   }
 
-  function index() {
+  function index()
+  {
     $data['posts'] = $this->post_model->find_all();
     $this->layout->view('posts/index', $data);
   }
 
-  function add() {
+  function add()
+  {
     if ($this->input->post()) {
       $post = post_form();
       post_form_validate();
@@ -30,7 +45,8 @@ class Posts extends CI_Controller {
     $this->layout->view('posts/add');
   }
 
-  function edit($id) {
+  function edit($id)
+  {
     if ($this->input->post()) {
       $post = post_form();
       post_form_validate();
@@ -43,9 +59,9 @@ class Posts extends CI_Controller {
     $this->layout->view('posts/edit', $data);
   }
 
-  function delete($id) {
+  function delete($id)
+  {
     $this->post_model->delete($id);
     redirect('posts');
   }
-
 }

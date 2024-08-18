@@ -1,6 +1,18 @@
 <?php
 
-class Sub_menus extends CI_Controller {
+/**
+ * cmsInferno
+ *
+ * Simply blog
+ *
+ * Copyright (c) 2024 cmsInferno. All rights reserved.
+ *
+ * cmsInferno and its user interface are protected by trademark
+ * and other pending or existing intellectual property
+ * rights in the Philippines.
+ */
+class Sub_menus extends CI_Controller
+{
 
   var $sub_menu_model;
   var $menu_model;
@@ -9,7 +21,8 @@ class Sub_menus extends CI_Controller {
   var $layout;
   var $form_validation;
 
-  function __construct() {
+  function __construct()
+  {
     parent::__construct();
     $this->load->model('sub_menu_model');
     $this->load->model('menu_model');
@@ -20,7 +33,8 @@ class Sub_menus extends CI_Controller {
   //   $this->layout->view('sub_menus/index', $data);
   // }
 
-  function add() {
+  function add()
+  {
     if ($this->input->post()) {
       $sub_menu = sub_menu_form();
       sub_menu_form_validate();
@@ -34,7 +48,8 @@ class Sub_menus extends CI_Controller {
     $this->layout->view('sub_menus/add', $data);
   }
 
-  function edit($id) {
+  function edit($id)
+  {
     if ($this->input->post()) {
       $sub_menu = sub_menu_form();
       sub_menu_form_validate();
@@ -49,9 +64,9 @@ class Sub_menus extends CI_Controller {
     $this->layout->view('sub_menus/edit', $data);
   }
 
-  function delete($id) {
+  function delete($id)
+  {
     $this->sub_menu_model->delete($id);
     redirect('sub_menus');
   }
-
 }

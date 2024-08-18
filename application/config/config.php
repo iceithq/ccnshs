@@ -1,5 +1,6 @@
 <?php
 
+error_reporting(E_ALL & ~E_DEPRECATED);
 defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set('Asia/Manila');
 

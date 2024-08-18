@@ -1,11 +1,11 @@
-<?php $this->load->view(get_theme() . '/_head'); ?>
+<?php load_view('_head'); ?>
 
 <div class="register">
   <img src="public/themes/default/img/logo.png">
   <h3>Register</h3>
   <?php echo form_open('register'); ?>
   <p>Email<br>
-    <?php echo form_input('email', $this->input->post('email'), 'class="form-control"'); ?>
+    <?php echo form_input('email', post('email'), 'class="form-control"'); ?>
     <?php echo form_error('email'); ?>
   </p>
   <p>Password<br>
@@ -17,7 +17,7 @@
     <?php echo form_error('confirm_password'); ?>
   </p>
   <p>
-    <?php echo form_submit('submit', 'Register', 'class="btn btn-success"'); ?>
+    <?php echo form_submit('submit', 'Save changes', 'class="btn btn-success"'); ?>
   </p>
   <p>
     Already have an account? <?php echo anchor('login', 'Log in'); ?>
