@@ -1,7 +1,11 @@
-<h4><?php echo $page->title; ?></h4>
+<div class="container mt-3">
+  <h4>
+    <?php echo $page->title; ?>
+  </h4>
 <?php if (session('user_id')) : ?>
   <p>
     <?php echo anchor('pages/edit/' . $page->id, 'Edit'); ?>
   </p>
 <?php endif; ?>
-<?php echo $page->content; ?>
+  <?php echo $page->content; ?>
+</div>
