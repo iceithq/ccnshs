@@ -16,18 +16,28 @@
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-
   <!-- Custom CSS -->
   <link href="public/themes/ccnshs/css/style.css?v=<?php uniqid(); ?>" rel="stylesheet">
+
+  <!-- Fonts -->
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Moderustic:wght@300..800&display=swap" rel="stylesheet">
 
   <style>
     html {
       /* font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji"; */
       font-size: 0.8rem;
+    }
+
+    body {
+      font-family: "Moderustic", sans-serif;
+      font-optical-sizing: auto;
+      /* font-weight: <weight>; */
+      font-style: normal;
     }
 
     table {
@@ -39,7 +49,7 @@
     h3,
     h4,
     h5 {
-      font-family: "Merriweather", serif;
+      /* font-family: "Merriweather", serif; */
       font-weight: bolder;
       font-style: normal;
     }
@@ -77,24 +87,26 @@
       <li class="nav-item">
         <?php echo anchor('.', 'Home', 'class="nav-link"'); ?>
       </li>
-      <?php foreach ($menus as $menu) : ?>
-        <?php if (menu_has_sub_menus($menu)) : ?>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink<?php echo $menu->id; ?>" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <?php echo $menu->name; ?>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink<?php echo $menu->id; ?>">
-              <?php foreach ($menu->sub_menus as $sub_menu) : ?>
-                <?php echo anchor($sub_menu->url, $sub_menu->name, 'class="dropdown-item"'); ?>
-              <?php endforeach; ?>
-            </div>
-          </li>
-        <?php else : ?>
-          <li class="nav-item">
-            <?php echo anchor($menu->url, $menu->name, 'class="nav-link"'); ?>
-          </li>
-        <?php endif; ?>
-      <?php endforeach; ?>
+      <?php if (isset($menus)) : ?>
+        <?php foreach ($menus as $menu) : ?>
+          <?php if (menu_has_sub_menus($menu)) : ?>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink<?php echo $menu->id; ?>" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php echo $menu->name; ?>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink<?php echo $menu->id; ?>">
+                <?php foreach ($menu->sub_menus as $sub_menu) : ?>
+                  <?php echo anchor($sub_menu->url, $sub_menu->name, 'class="dropdown-item"'); ?>
+                <?php endforeach; ?>
+              </div>
+            </li>
+          <?php else : ?>
+            <li class="nav-item">
+              <?php echo anchor($menu->url, $menu->name, 'class="nav-link"'); ?>
+            </li>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      <?php endif; ?>
       <?php if (session('user_id')) : ?>
         <li class="nav-item">
           <?php echo anchor('login', 'Manage my site', 'class="nav-link"'); ?>

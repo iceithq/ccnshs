@@ -60,7 +60,7 @@
     padding-top: 32px;
     padding-bottom: 32px;
 
-    font-family: "Merriweather", serif;
+    /* font-family: "Merriweather", serif; */
     font-weight: 700;
     font-style: normal;
     color: white;
