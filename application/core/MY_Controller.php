@@ -13,7 +13,6 @@
  */
 class MY_Controller extends CI_Controller
 {
-
   var $layout;
   var $output;
 
@@ -29,9 +28,15 @@ class MY_Controller extends CI_Controller
 
 class MY_UserController extends CI_Controller
 {
+  var $layout;
+  var $output;
 
   function __construct()
   {
     parent::__construct();
+    $this->layout->set_theme(config_item('admin_theme'));
+    $this->layout->set_layout('admin_layout');
+    $this->output->enable_profiler(config_item('enable_profiler', false));
+    $this->load->database();
   }
 }

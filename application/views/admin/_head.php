@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Custom -->
-  <link rel="stylesheet" href="themes/default/css/style.css">
+  <link rel="stylesheet" href="public/themes/default/css/style.css">
 
   <?php load_view('_fonts'); ?>
 
