@@ -10,12 +10,12 @@
     <th>Created</th>
     <th></th>
   </tr>
-  <?php foreach ($posts as $post): ?>
+  <?php foreach ($posts as $post) : ?>
     <tr>
       <td>
-        <?php if ($post->is_featured == 1): ?>
+        <?php if ($post->is_featured == 1) : ?>
           <i class="fa fa-star" aria-hidden="true"></i>
-        <?php else: ?>
+        <?php else : ?>
           <i class="fa fa-star-o" aria-hidden="true"></i>
         <?php endif; ?>
       </td>
@@ -30,8 +30,7 @@
       </td>
       <td nowrap>
         <?php echo anchor('posts/edit/' . $post->id, 'Edit', 'id="edit_post_' . $post->id . '"'); ?>
-        <a href='javascript:void(0);' onclick="deletePost('<?php echo $post->id; ?>', <?php echo $post->id; ?>);"
-          title="Delete">Delete</a>
+        <a href='javascript:void(0);' onclick="deletePost('<?php echo $post->id; ?>', <?php echo $post->id; ?>);" title="Delete">Delete</a>
       </td>
     </tr>
   <?php endforeach; ?>
@@ -39,6 +38,7 @@
 
 <script>
   var url = '<?php echo base_url(); ?>';
+
   function deletePost(name, id) {
     var c = confirm('Do you really want to delete ' + name + '?');
     if (c === true) {
