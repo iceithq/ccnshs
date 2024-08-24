@@ -73,11 +73,26 @@
       <li class="nav-item">
         <?php echo anchor('.', 'Home', 'class="nav-link"'); ?>
       </li>
-      <?php foreach ($menus as $menu) : ?>
-        <li class="nav-item">
-          <?php echo anchor($menu->url, $menu->name, 'class="nav-link"'); ?>
-        </li>
-      <?php endforeach; ?>
+      <?php if (isset($menus)) : ?>
+        <?php foreach ($menus as $menu) : ?>
+          <?php if (menu_has_sub_menus($menu)) : ?>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink<?php echo $menu->id; ?>" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php echo $menu->name; ?>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink<?php echo $menu->id; ?>">
+                <?php foreach ($menu->sub_menus as $sub_menu) : ?>
+                  <?php echo anchor($sub_menu->url, $sub_menu->name, 'class="dropdown-item"'); ?>
+                <?php endforeach; ?>
+              </div>
+            </li>
+          <?php else : ?>
+            <li class="nav-item">
+              <?php echo anchor($menu->url, $menu->name, 'class="nav-link"'); ?>
+            </li>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      <?php endif; ?>
       <?php if (session('user_id')) : ?>
         <li class="nav-item">
           <?php echo anchor('login', 'Manage my site', 'class="nav-link"'); ?>

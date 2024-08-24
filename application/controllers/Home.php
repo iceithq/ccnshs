@@ -117,4 +117,9 @@ class Home extends MY_Controller
     $this->session->sess_destroy();
     redirect('login');
   }
+
+  function show_404()
+  {
+    $this->layout->view('404');
+  }
 }
