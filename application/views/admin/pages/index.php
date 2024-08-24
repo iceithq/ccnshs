@@ -6,9 +6,14 @@
     <th>Created</th>
     <th></th>
   </tr>
-  <?php foreach ($pages as $page): ?>
+  <?php foreach ($pages as $page) : ?>
     <tr>
-      <td><?php echo anchor('page/' . $page->id, $page->title); ?></td>
+      <td>
+        <?php echo anchor('page/' . $page->id . perma_link($page->title), $page->title); ?>
+        <span class="pull-right">
+          <a href="javascript:void(0)" class="copy" data-value="page/<?php echo $page->id . '/' . perma_link($page->title); ?>">📄</a>
+        </span>
+      </td>
       <td><?php echo $page->created_at; ?></td>
       <td nowwrap>
         <?php echo anchor('pages/edit/' . $page->id, 'Edit', 'id="edit_page_' . $page->id . '"'); ?>
@@ -19,13 +24,20 @@
 </table>
 
 <script>
-    var url = '<?php echo base_url(); ?>';
-    function deletePage(name, id) {
-      var c = confirm('Do you really want to delete ' + name + '?');
-      if (c === true) {
-        window.location = url + 'pages/delete/' + id;
-      } else {
-        return false;
-      }
+  var url = '<?php echo base_url(); ?>';
+
+  function deletePage(name, id) {
+    var c = confirm('Do you really want to delete ' + name + '?');
+    if (c === true) {
+      window.location = url + 'pages/delete/' + id;
+    } else {
+      return false;
     }
+  }
+
+  $(function() {
+    $('.copy').click(function() {
+      Clipboard.copy($(this));
+    });
+  });
 </script>
