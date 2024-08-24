@@ -30,7 +30,7 @@
   <style>
     html {
       /* font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji"; */
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
 
     body {
