@@ -7,7 +7,7 @@
   <?php echo form_input('title', post('title'), 'class="form-control"'); ?>
   <?php echo form_error('title'); ?>
 </p>
-<p>Alt_text<br>
+<p>Alt text<br>
   <?php echo form_input('alt_text', post('alt_text'), 'class="form-control"'); ?>
   <?php echo form_error('alt_text'); ?>
 </p>

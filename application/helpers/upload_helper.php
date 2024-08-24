@@ -11,6 +11,19 @@
  * and other pending or existing intellectual property
  * rights in the Philippines.
  */
+function get_upload_icon($upload_url)
+{
+  $extension = strtolower(pathinfo($upload_url, PATHINFO_EXTENSION));
+  if ($extension == 'pdf') {
+    return '<i class="fa fa-file-pdf-o" aria-hidden="true"></i>';
+  }
+  $url = 'media/' . $upload_url;
+  if (!file_exists($url)) {
+    $url = 'public/themes/default/img/no-image.png';
+  }
+  return  img(array('src' => $url, 'width' => 48));
+}
+
 function upload_url($upload)
 {
   return base_url() . 'media/' . $upload->url;

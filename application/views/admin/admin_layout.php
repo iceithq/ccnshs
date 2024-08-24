@@ -1,3 +1,4 @@
+<html>
 <?php load_view('_head'); ?>
 
 <script>
@@ -28,60 +29,66 @@
   }
 </script>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <?php
-  echo anchor(
-    'user/home',
-    img(array('src' => 'public/themes/default/img/logo.png?v=2', 'class' => 'logo', 'height' => 42)),
-    'class="navbar-brand"'
-  );
-  ?>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <?php echo anchor('user/home', '🏠 Home', 'class="nav-link"'); ?>
-      </li>
-      <li class="nav-item">
-        <?php echo anchor('posts', '📝 Posts', 'id="posts" class="nav-link"'); ?>
-      </li>
-      <li class="nav-item">
-        <?php echo anchor('comments', '💬 Comments', 'id="posts" class="nav-link"'); ?>
-      </li>
-      <li class="nav-item">
-        <?php echo anchor('pages', '📄 Pages', 'id="pages" class="nav-link"'); ?>
-      </li>
-      <li class="nav-item">
-        <?php echo anchor('menus', '🍽️ Menus', 'id="pages" class="nav-link"'); ?>
-      </li>
-      <li class="nav-item">
-        <?php echo anchor('uploads', '📷️ Media', 'id="pages" class="nav-link"'); ?>
-      </li>
-    </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <?php echo anchor('user/profile', '🧑‍ Profile', 'id="profile" class="nav-link"'); ?>
-      </li>
-      <li class="nav-item">
-        <?php echo anchor('logout', '🔓 Log out', 'id="logout" class="nav-link"'); ?>
-      </li>
-    </ul>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <?php
+    echo anchor(
+      'user/home',
+      img(array('src' => 'public/themes/default/img/logo.png?v=2', 'class' => 'logo', 'height' => 42)),
+      'class="navbar-brand"'
+    );
+    ?>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <?php echo anchor('user/home', '🏠 Home', 'class="nav-link"'); ?>
+        </li>
+        <li class="nav-item">
+          <?php echo anchor('posts', '📝 Posts', 'id="posts" class="nav-link"'); ?>
+        </li>
+        <li class="nav-item">
+          <?php echo anchor('comments', '💬 Comments', 'id="posts" class="nav-link"'); ?>
+        </li>
+        <li class="nav-item">
+          <?php echo anchor('pages', '📄 Pages', 'id="pages" class="nav-link"'); ?>
+        </li>
+        <li class="nav-item">
+          <?php echo anchor('menus', '🍽️ Menus', 'id="pages" class="nav-link"'); ?>
+        </li>
+        <li class="nav-item">
+          <?php echo anchor('uploads', '📷️ Media', 'id="pages" class="nav-link"'); ?>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <?php echo anchor('user/profile', '🧑‍ Profile', 'id="profile" class="nav-link"'); ?>
+        </li>
+        <li class="nav-item">
+          <?php echo anchor('logout', '🔓 Log out', 'id="logout" class="nav-link"'); ?>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-2">
+
+    <?php echo $content; ?>
   </div>
-</nav>
 
-<div class="container mt-2">
+  <style>
+    .container img {
+      /* width: 128px; */
+    }
 
-  <?php echo $content; ?>
-</div>
+    nav a {
+      margin-right: 10px;
+    }
+  </style>
 
-<style>
-  .container img {
-    /* width: 128px; */
-  }
+</body>
 
-  nav a {
-    margin-right: 10px;
-  }
-</style>
+</html>

@@ -196,7 +196,7 @@ function upload_config()
   }
   return array(
     'upload_path' => $upload_path,
-    'allowed_types' => 'gif|jpg|jpeg|png',
+    'allowed_types' => '*', //gif|jpg|jpeg|png',
     // 'max_size' => 2014,
     // 'max_width' => 2048,
     // 'max_height' => 2048,

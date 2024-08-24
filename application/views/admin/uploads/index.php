@@ -11,8 +11,8 @@
     <th>Description</th>
     <th></th>
   </tr>
-  <?php if (isset($folders)): ?>
-    <?php foreach ($folders as $folder): ?>
+  <?php if (isset($folders)) : ?>
+    <?php foreach ($folders as $folder) : ?>
       <tr>
         <td>📁</td>
         <td>
@@ -22,17 +22,16 @@
         <td></td>
         <td>
           <?php echo anchor('folders/edit/' . $folder->id, 'Edit'); ?>
-          <a href='javascript:void(0);' onclick="deleteFolder('<?php echo $folder->id; ?>', <?php echo $folder->id; ?>);"
-            title="Delete">Delete</a>
+          <a href='javascript:void(0);' onclick="deleteFolder('<?php echo $folder->id; ?>', <?php echo $folder->id; ?>);" title="Delete">Delete</a>
         </td>
       </tr>
     <?php endforeach; ?>
   <?php endif; ?>
-  <?php foreach ($uploads as $upload): ?>
+  <?php foreach ($uploads as $upload) : ?>
     <tr>
       <td>
-        <?php if ($upload->url): ?>
-          <?php echo img(array('src' => 'media/' . $upload->url, 'width' => 48)); ?>
+        <?php if ($upload->url) : ?>
+          <?php echo get_upload_icon($upload->url) ?>
         <?php endif; ?>
       </td>
       <td>
@@ -49,8 +48,7 @@
       </td>
       <td nowrap>
         <?php echo anchor('uploads/edit/' . $upload->id, 'Edit'); ?>
-        <a href='javascript:void(0);' onclick="deleteUpload('<?php echo $upload->id; ?>', <?php echo $upload->id; ?>);"
-          title="Delete">Delete</a>
+        <a href='javascript:void(0);' onclick="deleteUpload('<?php echo $upload->id; ?>', <?php echo $upload->id; ?>);" title="Delete">Delete</a>
       </td>
     </tr>
   <?php endforeach; ?>
@@ -58,6 +56,7 @@
 
 <script>
   var url = '<?php echo base_url(); ?>';
+
   function deleteUpload(name, id) {
     var c = confirm('Do you really want to delete ' + name + '?');
     if (c === true) {
@@ -67,8 +66,8 @@
     }
   }
 
-  $(function () {
-    $('.copy').click(function () {
+  $(function() {
+    $('.copy').click(function() {
       Clipboard.copy($(this));
     });
   });
