@@ -77,6 +77,12 @@
   <div class="container mt-2">
 
     <?php echo $content; ?>
+
+    <footer class="mt-5 mb-5">
+      <hr>
+      Powered by cmsInferno with ❤️!<br>
+      &copy; <?php echo date('Y'); ?>
+    </footer>
   </div>
 
   <style>
