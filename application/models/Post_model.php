@@ -21,17 +21,27 @@ class Post_model extends CI_Model
 
   function find_all($limit = 100)
   {
-    $this->db->order_by('created_at', 'desc');
+    $this->db->select('p.*');
+    $this->db->select("ifnull(p.is_featured, 0) is_featured");
+    $this->db->order_by('p.created_at', 'desc');
     if ($limit > 0) {
       $this->db->limit($limit);
     }
+    return $this->db->get('posts p')->result();
+  }
+
+  function find_featured_top($limit = 6)
+  {
+    $this->db->order_by('created_at', 'desc');
+    $this->db->where('is_featured', 1);
+    $this->db->limit($limit);
     return $this->db->get('posts')->result();
   }
 
-  function find_top_5()
+  function find_top($limit = 6)
   {
     $this->db->order_by('created_at', 'desc');
-    $this->db->limit(10);
+    $this->db->limit($limit);
     return $this->db->get('posts')->result();
   }
 
