@@ -68,12 +68,14 @@
     }
 
     a {
-      color: #0E4C31;
+      /* color: #0E4C31; */
+      color: #0D4E86;
     }
 
     a:hover,
     a:active {
-      color: #0E4C31;
+      /* color: #0E4C31; */
+      color: #0D4E86;
     }
   </style>
 

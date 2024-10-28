@@ -1,4 +1,5 @@
-<div class="jumbotron jumbotron-fluid" style="background: linear-gradient(to right, #0E4C31, #0E4C31), no-repeat center center; background-size: cover;margin-bottom:0">
+<!-- <div class="jumbotron jumbotron-fluid" style="background: linear-gradient(to right, #0E4C31, #0E4C31), no-repeat center center; background-size: cover;margin-bottom:0"> -->
+<div class="jumbotron jumbotron-fluid" style="background: linear-gradient(to right, #0D4E86, #0D4E86), no-repeat center center; background-size: cover;margin-bottom:0">
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-sm-12 mb-3">
