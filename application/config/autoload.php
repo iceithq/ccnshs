@@ -96,6 +96,7 @@ $autoload['drivers'] = array();
   |	$autoload['helper'] = array('url', 'file');
  */
 $autoload['helper'] = array(
+  'user_token',
   'folder',
   'sub_menu',
   'post_view',
