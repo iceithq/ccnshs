@@ -50,7 +50,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <div class="container mt-3">
-  <?php recent_posts(); ?>
+  <?php featured_posts(); ?>
+
+  <hr>
 
   <?php recent_posts(); ?>
 </div>
