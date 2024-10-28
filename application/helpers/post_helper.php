@@ -35,10 +35,18 @@ function post_teaser($post, $length = 350)
   return substr($content, 0, $length) . '...';
 }
 
+function featured_posts()
+{
+  $obj = &get_instance();
+  $recent_posts = $obj->post_model->find_featured_top(5);
+  $data['recent_posts'] = $recent_posts;
+  load_view('recent_posts', $data);
+}
+
 function recent_posts()
 {
   $obj = &get_instance();
-  $recent_posts = $obj->post_model->find_top_5();
+  $recent_posts = $obj->post_model->find_top(6);
   $data['recent_posts'] = $recent_posts;
   load_view('recent_posts', $data);
 }
