@@ -26,6 +26,11 @@ function yesterday($format = DEFAULT_DATETIME_FORMAT)
   return date($format, strtotime('-1 days', strtotime(now())));
 }
 
+function minutes_from_now($minutes, $format = DEFAULT_DATETIME_FORMAT)
+{
+  return date($format, strtotime("+$minutes minutes", strtotime(now())));
+}
+
 function this_month()
 {
   $start = date('Y-m', strtotime(now())) . '-01 00:01';
