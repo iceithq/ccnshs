@@ -19,6 +19,7 @@ class Home extends MY_Controller
   var $page_model;
   var $menu_model;
   var $post_view_model;
+  var $user_token_model;
   var $admin_service;
 
   var $layout;
@@ -34,6 +35,7 @@ class Home extends MY_Controller
     $this->load->model('page_model');
     $this->load->model('menu_model');
     $this->load->model('post_view_model');
+    $this->load->model('user_token_model');
     $this->load->library('admin_service');
   }
 
@@ -93,6 +95,9 @@ class Home extends MY_Controller
       if ($user) {
         session('user_id', $user->id);
         session('site_id', $user->site_id);
+        $user_token = user_token_form($user->id);
+        $token = $this->user_token_model->save($user_token);
+        session('token', $token);
         redirect('user/home');
       } else {
         $data['message'] = 'Invalid username or password. Please try again!';

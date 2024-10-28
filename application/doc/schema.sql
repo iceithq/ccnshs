@@ -84,4 +84,12 @@ alter table posts add is_featured integer;
 ALTER TABLE pages CHANGE content content mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ALTER DATABASE u563318964_ccnshs CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
+create table user_tokens(
+  id integer not null primary key auto_increment,
+  user_id integer,
+  token varchar(255),
+  expires_at datetime,
+  created_at datetime,
+  updated_at datetime
+);
 
