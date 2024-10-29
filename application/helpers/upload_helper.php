@@ -39,22 +39,23 @@ function get_upload_url($upload)
   return '';
 }
 
-function upload_form($title = null, $alt_text = null, $description = null)
+function upload_form($title = null, $folder_id = null, $alt_text = null, $description = null)
 {
   $obj = &get_instance();
   return array(
+    'folder_id' => $folder_id ?? post('folder_id'),
     'title' => $title ?? post('title'),
     'alt_text' => $alt_text ?? post('alt_text'),
     'description' => $description ?? post('description'),
   );
 }
 
-function upload_minimal_form($folder_id)
+function upload_minimal_form($folder_id, $title = null)
 {
   $obj = &get_instance();
   return array(
     'folder_id' => $folder_id,
-    // 'title' => post('title'),
+    'title' => $title ?? post('title'),
   );
 }
 

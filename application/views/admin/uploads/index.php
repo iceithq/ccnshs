@@ -30,10 +30,10 @@
         </tr>
       <?php endforeach; ?>
     <?php endif; ?>
-    <?php foreach ($uploads as $upload) : ?>
+    <?php foreach ($uploads as $upload): ?>
       <tr>
         <td>
-          <?php if ($upload->url) : ?>
+          <?php if ($upload->url): ?>
             <?php echo get_upload_icon($upload->url) ?>
           <?php endif; ?>
         </td>

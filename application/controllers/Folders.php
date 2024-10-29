@@ -36,7 +36,7 @@ class Folders extends CI_Controller
 
   function show($id)
   {
-    $data['folder'] = $this->folder_model->read($id);
+    $data['current_folder'] = $this->folder_model->read($id);
     $data['uploads'] = $this->upload_model->find_by_folder($id);
     $this->layout->view('folders/show', $data);
   }
