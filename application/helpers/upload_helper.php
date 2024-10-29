@@ -39,13 +39,13 @@ function get_upload_url($upload)
   return '';
 }
 
-function upload_form()
+function upload_form($title = null, $alt_text = null, $description = null)
 {
   $obj = &get_instance();
   return array(
-    'title' => post('title'),
-    'alt_text' => post('alt_text'),
-    'description' => post('description'),
+    'title' => $title ?? post('title'),
+    'alt_text' => $alt_text ?? post('alt_text'),
+    'description' => $description ?? post('description'),
   );
 }
 

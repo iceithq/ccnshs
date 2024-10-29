@@ -47,8 +47,8 @@ class Folders extends CI_Controller
       $folder = folder_form();
       folder_form_validate();
       if ($this->form_validation->run() != FALSE) {
-        $this->folder_model->save($folder);
-        redirect('folders');
+        $folder_id = $this->folder_model->save($folder);
+        redirect('folders/show/' . $folder_id);
       }
     }
     $this->layout->view('folders/add');

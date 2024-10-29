@@ -33,6 +33,7 @@ class Folder_model extends CI_Model
   {
     $this->db->set('created_at', now());
     $this->db->insert('folders', $folder);
+    return $this->db->insert_id();
   }
 
   function update($folder, $id)

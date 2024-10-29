@@ -6,6 +6,10 @@
       };
       Inferno.post(url + '/api/login', data, success, error);
     }
+    static saveImage(url, token, formData, success, error) {
+      formData.append('token', token);
+      Inferno.postMultiPart(url + '/api/save_upload', formData, success, error);
+    }
     static featurePost(url, token, postId, isFeatured, success, error) {
       var data = {
         token: token,

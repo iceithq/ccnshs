@@ -1,7 +1,9 @@
-<h3>Uploads</h3>
-<!-- <p>
-  <?php echo anchor('uploads/add', 'Add upload', 'class="btn btn-success"'); ?>
-</p> -->
+<h3>
+  <?php echo anchor('uploads', 'Uploads'); ?>
+  <?php if ($folder): ?>
+    ≫ <?php echo $folder->name; ?>
+  <?php endif; ?>
+</h3>
 
 <?php echo form_open_multipart('uploads/add_minimal/' . $folder->id); ?>
 <p>
@@ -16,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
 <script>
-  $(function () {
+  $(function() {
     $('.dropify').dropify();
   });
 </script>
@@ -76,6 +78,7 @@
 
 <script>
   var url = '<?php echo base_url(); ?>';
+
   function deleteUpload(name, id) {
     var c = confirm('Do you really want to delete ' + name + '?');
     if (c === true) {
@@ -85,8 +88,8 @@
     }
   }
 
-  $(function () {
-    $('.copy').click(function () {
+  $(function() {
+    $('.copy').click(function() {
       Clipboard.copy($(this));
     });
   });

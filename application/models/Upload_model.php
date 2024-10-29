@@ -39,6 +39,8 @@ class Upload_model extends CI_Model
   function save($upload)
   {
     $this->db->insert('uploads', $upload);
+    // return $upload['url'];
+    return $this->db->insert_id();
   }
 
   function update($upload, $id)
