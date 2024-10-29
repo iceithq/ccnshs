@@ -1,7 +1,7 @@
 <h3>Uploads</h3>
 <p>
   <?php echo anchor('folders/add', 'Add folder', 'class="btn btn-success"'); ?>
-  <?php echo anchor('uploads/add', 'Add upload', 'class="btn btn-success"'); ?>
+  <?php echo anchor('uploads/add', 'Upload file', 'class="btn btn-success"'); ?>
 </p>
 <table class="table table-hover">
   <thead>

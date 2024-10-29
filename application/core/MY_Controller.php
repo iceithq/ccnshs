@@ -34,6 +34,7 @@ class MY_UserController extends CI_Controller
   function __construct()
   {
     parent::__construct();
+    redirect_if(!session('user_id'), 'login');
     $this->layout->set_theme(config_item('admin_theme'));
     $this->layout->set_layout('admin_layout');
     $this->output->enable_profiler(config_item('enable_profiler', false));
