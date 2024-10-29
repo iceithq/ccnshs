@@ -32,8 +32,20 @@
   </script>
 </p>
 <p>Created<br>
-  <?php echo form_input('created_at', $post->created_at, 'id="created_at" class="form-control"'); ?>
+  <?php echo form_input('created_at', $post->created_at, 'id="created_at" class="form-control datepicker"'); ?>
   <?php echo form_error('created_at'); ?>
+  <!-- Bootstrap Datepicker CSS and JS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+        todayHighlight: true
+      });
+    });
+  </script>
 </p>
 <p>
   <?php echo form_submit('submit', 'Update post', 'id="update" class="btn btn-success"'); ?>
