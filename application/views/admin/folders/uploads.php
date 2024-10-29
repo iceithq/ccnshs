@@ -79,12 +79,12 @@
 </table>
 
 <script>
-  var url = '<?php echo base_url(); ?>';
+  var url = '<?php echo trimmed_base_url(); ?>';
 
   function deleteUpload(name, id) {
     var c = confirm('Do you really want to delete ' + name + '?');
     if (c === true) {
-      window.location = url + 'uploads/delete/' + id;
+      window.location = url + '/uploads/delete/' + id;
     } else {
       return false;
     }
@@ -105,7 +105,6 @@
 <script src="public/js/inferno.js"></script>
 <script src="https://unpkg.com/pastejud@0.0.2/dist/pastejud.js"></script>
 <script>
-  var baseUrl = '<?php echo trimmed_base_url(); ?>';
   var token = '<?php echo session('token'); ?>';
   var folderId = <?php echo $current_folder ? $current_folder->id : 'null'; ?>;
   $(function() {
@@ -131,7 +130,7 @@
           <td>${upload.alt_text}</td>
           <td>${upload.description}</td>
           <td>
-            <a href="${baseUrl}/uploads/edit/${upload.id}">Edit</a>
+            <a href="${url}/uploads/edit/${upload.id}">Edit</a>
             <a href='javascript:void(0);' onclick="deleteUpload('${upload.id}', ${upload.id});" title="Delete">Delete</a>
           </td>
         </tr>`);

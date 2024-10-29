@@ -60,6 +60,11 @@
       font-style: normal;
     }
 
+    img,
+    iframe {
+      margin-bottom: 10px;
+    }
+
     footer {
       margin-top: 100px;
       padding-top: 50px;
