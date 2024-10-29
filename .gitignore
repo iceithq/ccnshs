@@ -34,3 +34,5 @@ node_modules/
 media/
 deploy.json
 run-deploy.bat
+composer.lock
+~etc

@@ -159,7 +159,7 @@ function resize_image($filename, $file_type)
   imagedestroy($image_p);
 }
 
-function lalala($field, $label = '', $rules = '', $errors = array())
+function form_validation_set_rules($field, $label = '', $rules = '', $errors = array())
 {
   $obj = &get_instance();
   $obj->form_validation->set_rules($field, $label, $rules, $errors);
@@ -168,7 +168,8 @@ function lalala($field, $label = '', $rules = '', $errors = array())
 function post($name, $default = '')
 {
   $obj = &get_instance();
-  if ($obj->input->post($name)) {
+  $value = $obj->input->post($name);
+  if ($value !== null) {
     return $obj->input->post($name);
   }
   return $default;

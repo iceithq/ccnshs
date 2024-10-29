@@ -36,7 +36,7 @@ class Home extends MY_Controller
     $this->load->model('menu_model');
     $this->load->model('post_view_model');
     $this->load->model('user_token_model');
-    $this->load->library('admin_service');
+    $this->load->library(['admin_service', 'parsedown']);
   }
 
   function index()

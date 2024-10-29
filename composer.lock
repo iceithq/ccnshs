@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e6f26e1a7ea64adfe5e954283ca8850c",
+    "content-hash": "836cf9dfc3d0cf22c3acb41c9f69dbbd",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -115,6 +115,43 @@
                 "source": "https://github.com/iescarro/cigen/tree/master"
             },
             "time": "2019-04-08T01:31:27+00:00"
+        },
+        {
+            "name": "iescarro/deployphp",
+            "version": "v0.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iescarro/deployphp.git",
+                "reference": "391ef83d32ba264ed22d826ccd83ff5cb186b7d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iescarro/deployphp/zipball/391ef83d32ba264ed22d826ccd83ff5cb186b7d3",
+                "reference": "391ef83d32ba264ed22d826ccd83ff5cb186b7d3",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DeployPHP\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ian",
+                    "email": "ian.escarro@gmail.com"
+                }
+            ],
+            "description": "Simple PHP deployer for git differences between hashes.",
+            "support": {
+                "issues": "https://github.com/iescarro/deployphp/issues",
+                "source": "https://github.com/iescarro/deployphp/tree/v0.1.6"
+            },
+            "time": "2024-08-17T16:01:12+00:00"
         },
         {
             "name": "mikey179/vfsstream",
