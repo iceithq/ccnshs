@@ -40,7 +40,7 @@ function featured_posts()
   $obj = &get_instance();
   $recent_posts = $obj->post_model->find_featured_top(5);
   $data['recent_posts'] = $recent_posts;
-  load_view('recent_posts', $data);
+  load_view('featured_posts', $data);
 }
 
 function recent_posts()
