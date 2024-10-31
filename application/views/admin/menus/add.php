@@ -9,7 +9,7 @@
   <?php echo form_error('url'); ?>
 </p>
 <p>Sort order<br>
-  <?php echo form_input('sort_order', post('sort_order'), 'class="form-control"'); ?>
+  <?php echo form_input('sort_order', post('sort_order', 0), 'class="form-control"'); ?>
   <?php echo form_error('sort_order'); ?>
 </p>
 <p>
