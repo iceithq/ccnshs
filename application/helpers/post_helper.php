@@ -51,11 +51,23 @@ function recent_posts()
   load_view('recent_posts', $data);
 }
 
-function posts()
+function posts($offset = 0)
 {
   $obj = &get_instance();
-  $posts = $obj->post_model->find_all(); // TODO:
-  $data['posts'] = $posts;
+  $obj->load->model('post_model');
+  $obj->load->library('pagination');
+
+  $per_page = 10;
+  $total_posts = $obj->post_model->count('', $per_page, $offset);
+  $data['count_posts'] = $total_posts;
+  $data['posts'] = $obj->post_model->find('', $per_page, $offset);
+
+  $data['per_page'] = $per_page;
+  $data['offset'] = $offset;
+  $obj->pagination->initialize(pagination_config(trimmed_base_url() . '/blog', $total_posts, $per_page, true, true));
+
+  // $posts = $obj->post_model->find_all(); // TODO:
+  // $data['posts'] = $posts;
   load_view('posts', $data);
 }
 

@@ -1,6 +1,9 @@
 <div class="container mt-3">
   <h4>News</h4>
 
+  <?php $pagination_links = $this->pagination->create_links(); ?>
+  <?php echo $pagination_links; ?>
+
   <?php foreach ($posts as $post) : ?>
     <h5 class="mt-3">
       <?php echo anchor('post/' . $post->id . '/' . perma_link($post->title), $post->title); ?>
@@ -12,4 +15,6 @@
     <?php echo anchor('post/' . $post->id . '/' . perma_link($post->title), '<b>See more...</b>'); ?>
     <hr>
   <?php endforeach; ?>
+
+  <?php echo $pagination_links; ?>
 </div>

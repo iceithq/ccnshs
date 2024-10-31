@@ -65,3 +65,4 @@ $route['post/(:any)'] = 'home/post/$1';
 $route['page/(:any)/(:any)'] = 'home/page/$1/$2';
 $route['page/(:any)'] = 'home/page/$1';
 $route['blog'] = 'home/blog';
+$route['blog/(:any)'] = 'home/blog/$1';

@@ -62,10 +62,9 @@ class Home extends MY_Controller
     $this->layout->view('home', $data);
   }
 
-  function blog()
+  function blog($offset = 0)
   {
-    // $data['posts'] = $this->post_model->find_top_5();
-    // $data['menus'] = $this->menu_model->find_all();
+    $data['offset'] = $offset;
     $data['menus'] = $this->admin_service->get_menus();
     $this->layout->view('blog', $data);
   }
