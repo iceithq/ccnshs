@@ -163,25 +163,30 @@
       <div class="col-md-4 col-sm-12">
         <b>Cebu City National Science High School</b>
         <p>
-          6000 Salvador St, Cebu City, 6000 Cebu
+          Salvador St, Cebu City, 6000 Cebu Philippines
         </p>
       </div>
       <div class="col-md-3 col-sm-12">
-        <b>ABOUT GOVPH</b>
-        <p>Learn more about the Philippine government, its structure, how government works and the people behind it.</p>
+        <b>ABOUT DEPED</b>
+        <p>The Department of Education (DepEd) in the Philippines is the government agency responsible for ensuring access to quality basic education for all Filipinos.</p>
         <b>GOV.PH</b>
-        <p>Open Data Portal<br>
-          Official Gazette</p>
+        <p>
+          <a href="https://www.deped.gov.ph/" target="_blank">Department of Education</a><br>
+          <a href="http://www.gov.ph/data" target="_blank">Open Data Portal</a><br>
+          <a href="http://www.officialgazette.gov.ph/" target="_blank">Official Gazette</a>
+        </p>
       </div>
       <div class="col-md-3 col-sm-12">
         <b>GOVERNMENT LINKS</b>
-        <p>Office of the President<br>
-          Office of the Vice President<br>
-          Senate of the Philippines<br>
-          House of Representatives<br>
-          Supreme Court<br>
-          Court of Appeals<br>
-          Sandiganbayan</p>
+        <p>
+          <a href="http://president.gov.ph/" target="_blank">Office of the President</a><br>
+          <a href="http://ovp.gov.ph/" target="_blank">Office of the Vice President</a><br>
+          <a href="http://www.senate.gov.ph/" target="_blank">Senate of the Philippines</a><br>
+          <a href="http://www.congress.gov.ph/" target="_blank">House of Representatives</a><br>
+          <a href="http://sc.judiciary.gov.ph/" target="_blank">Supreme Court</a><br>
+          <a href="http://ca.judiciary.gov.ph/" target="_blank">Court of Appeals</a><br>
+          <a href="http://sb.judiciary.gov.ph/" target="_blank">Sandiganbayan</a>
+        </p>
       </div>
     </div>
   </div>
