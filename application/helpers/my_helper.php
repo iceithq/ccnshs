@@ -332,6 +332,32 @@ function print_pre($text, $pre_text = '')
   echo '</pre>';
 }
 
+function pagination_config($url, $total_rows, $per_page, $enable_query_strings = false, $reuse_query_string = false)
+{
+  $config = array(
+    'enable_query_strings' => $enable_query_strings,
+    'reuse_query_string' => $reuse_query_string,
+    'base_url' => $url,
+    'total_rows' => $total_rows,
+    'per_page' => $per_page,
+    'full_tag_open' => '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">',
+    'full_tag_close' => '</ul></nav>',
+    'prev_link' => '«',
+    'next_link' => '»',
+    'prev_tag_open' => '<li class="page-item"><span class="page-link">',
+    'prev_tag_close' => '</span></li>',
+    'next_tag_open' => '<li class="page-item"><span class="page-link">',
+    'next_tag_close' => '</span></li>',
+    'cur_tag_open' => '<li class="page-item active" aria-current="page"><span class="page-link">',
+    'cur_tag_close' => '</span></li>',
+    'num_tag_open' => '<li class="page-item"><span class="page-link">',
+    'num_tag_close' => '</span></li>',
+    'first_link' => false,
+    'last_link' => false,
+  );
+  return $config;
+}
+
 function trimmed_base_url()
 {
   return trim(base_url(), '/');

@@ -18,6 +18,29 @@ class Post_model extends CI_Model
     parent::__construct();
   }
 
+  function count($q, $limit, $offset)
+  {
+    $this->db->select('count(*) as count');
+    $this->db->select("ifnull(p.is_featured, 0) is_featured");
+    $this->db->order_by('p.created_at', 'desc');
+    $qq = $this->db->escape($q);
+    $this->db->where("MATCH(p.teaser, p.content) AGAINST($qq IN NATURAL LANGUAGE MODE)", null, false);
+    $this->db->or_like('p.title', $q);
+    return $this->db->get('posts p')->row()->count;
+  }
+
+  function find($q, $limit, $offset)
+  {
+    $this->db->select('p.*');
+    $this->db->select("ifnull(p.is_featured, 0) is_featured");
+    $this->db->order_by('p.created_at', 'desc');
+    $qq = $this->db->escape($q);
+    $this->db->where("MATCH(p.teaser, p.content) AGAINST($qq IN NATURAL LANGUAGE MODE)", null, false);
+    $this->db->or_like('p.title', $q);
+    $this->db->limit($limit, $offset);
+    return $this->db->get('posts p')->result();
+  }
+
   function find_all($limit = 100)
   {
     $this->db->select('p.*');

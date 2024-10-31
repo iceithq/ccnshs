@@ -129,7 +129,7 @@
     <?php echo form_open('search', array('method' => 'get')); ?>
     <div class="form-group has-search">
       <span class="fa fa-search form-control-feedback"></span>
-      <?php echo form_input('q', get('q'), 'class="form-control" placeholder="Search"'); ?>
+      <?php echo form_input('q', get('q'), 'class="form-control" placeholder="What are you looking for?"'); ?>
     </div>
     <?php echo form_close(); ?>
 </nav>

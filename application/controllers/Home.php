@@ -21,6 +21,7 @@ class Home extends MY_Controller
   var $post_view_model;
   var $user_token_model;
   var $admin_service;
+  var $pagination;
 
   var $layout;
   var $input;
@@ -36,7 +37,23 @@ class Home extends MY_Controller
     $this->load->model('menu_model');
     $this->load->model('post_view_model');
     $this->load->model('user_token_model');
-    $this->load->library(['admin_service', 'parsedown']);
+    $this->load->library(['admin_service', 'parsedown', 'pagination']);
+  }
+
+  function search($offset = 0)
+  {
+    $per_page = 10;
+    $q = get('q', '');
+    $total_posts = $this->post_model->count($q, $per_page, $offset);
+    $data['count_posts'] = $total_posts;
+    $data['posts'] = $this->post_model->find($q, $per_page, $offset);
+    $data['menus'] = $this->admin_service->get_menus();
+
+    $data['per_page'] = $per_page;
+    $data['offset'] = $offset;
+    $this->pagination->initialize(pagination_config(trimmed_base_url() . '/search', $total_posts, $per_page, true, true));
+
+    $this->layout->view('search', $data);
   }
 
   function index()

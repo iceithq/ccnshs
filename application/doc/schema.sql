@@ -93,3 +93,4 @@ create table user_tokens(
   updated_at datetime
 );
 
+ALTER TABLE posts ADD FULLTEXT(teaser, content);
